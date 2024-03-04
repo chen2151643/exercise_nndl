@@ -27,3 +27,5 @@
 - [ ] 参照`lienar_regression-tf2.0.ipnb`使用tensorflow2.0 使用梯度下降完成线性回归
 - [ ] 使用训练集train.txt 进行训练，使用测试集test.txt 进行评估（标准差），训练模型时请不要使用测试集。
 
+
+
