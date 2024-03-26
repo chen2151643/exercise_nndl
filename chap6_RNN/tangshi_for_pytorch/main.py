@@ -4,7 +4,7 @@ import torch
 from torch.autograd import Variable
 import torch.optim as optim
 
-import rnn
+import rnn_lstm
 
 start_token = 'G'
 end_token = 'E'
@@ -164,7 +164,7 @@ def run_training():
             torch.nn.utils.clip_grad_norm(rnn_model.parameters(), 1)
             optimizer.step()
 
-            if batch % 20 ==0:
+            if batch % 200 ==0:
                 torch.save(rnn_model.state_dict(), './poem_generator_rnn')
                 print("finish  save model")
 
@@ -187,7 +187,7 @@ def pretty_print_poem(poem):  # 令打印的结果更工整
         shige.append(w)
     poem_sentences = poem.split('。')
     for s in poem_sentences:
-        if s != '' and len(s) > 10:
+        if s != '' and len(s) > 0:
             print(s + '。')
 
 
@@ -218,7 +218,7 @@ def gen_poem(begin_word):
 
 
 
-run_training()  # 如果不是训练阶段 ，请注销这一行 。 网络训练时间很长。
+# run_training()  # 如果不是训练阶段 ，请注销这一行 。 网络训练时间很长。
 
 
 pretty_print_poem(gen_poem("日"))
@@ -226,8 +226,7 @@ pretty_print_poem(gen_poem("红"))
 pretty_print_poem(gen_poem("山"))
 pretty_print_poem(gen_poem("夜"))
 pretty_print_poem(gen_poem("湖"))
-pretty_print_poem(gen_poem("湖"))
-pretty_print_poem(gen_poem("湖"))
+pretty_print_poem(gen_poem("海"))
 pretty_print_poem(gen_poem("君"))
 
 
